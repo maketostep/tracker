@@ -10,6 +10,7 @@ import {
   Stack,
 } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
+
 import { fetchTasks } from '@/features/tasks/taskSlice';
 import TaskList from '@/components/tasks/TaskList';
 
@@ -37,13 +38,14 @@ const Dashboard = () => {
   return (
     <Box px={{ xs: 2, md: 4 }} py={{ xs: 4, md: 6 }}>
       <Stack
+        sx={{ display:"flex" }}
         direction={{ xs: 'column', sm: 'row' }}
-        justifyContent="space-between"
-        alignItems={{ xs: 'flex-start', sm: 'center' }}
+        justifyContent="center"
+        alignItems={{ sm: 'center' }}
         spacing={2}
         mb={4}
       >
-        <Box>
+        <Box sx={{justifyContent: 'center', alignItems: 'center'}}>
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Ваши задачи
           </Typography>
@@ -53,10 +55,10 @@ const Dashboard = () => {
         </Box>
       </Stack>
 
-      <Grid container spacing={3} mb={4}>
-        <Grid item xs={12} md={4}>
+      <Grid container spacing={3} mb={4} justifyContent="center">
+        <Grid item xs={5} md={3}>
           <Paper elevation={1} sx={{ p: 3 }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <Stack direction="row" justifyContent="center" alignItems="center">
               <Typography variant="subtitle1" color="text.secondary">
                 Ожидают
               </Typography>
