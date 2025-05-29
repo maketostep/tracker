@@ -63,7 +63,7 @@ const Index = () => {
       {/* Основной контент */}
       <Box component="main" flexGrow={1}>
         {/* Hero Section */}
-        <Box sx={{ bgcolor: 'grey.50', py: { xs: 6, md: 10 } }}>
+        <Box sx={{ bgcolor: 'inherit', py: { xs: 6, md: 10 } }}>
           <Container maxWidth="lg">
             <Box textAlign="center">
               <Typography
@@ -74,7 +74,7 @@ const Index = () => {
               >
                 Управляйте своими задачами{' '}
                 <Box component="span" color="grey.800">
-                  эффективно
+                  эффективно.
                 </Box>
               </Typography>
               <Typography

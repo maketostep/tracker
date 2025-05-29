@@ -24,11 +24,11 @@ export default function Footer() {
                 />
               </SvgIcon>
               <Typography variant="h6" ml={2}>
-                Трекер задач
+                Life Tracker
               </Typography>
             </Box>
             <Typography variant="body2" color="grey.400" textAlign="center">
-              © 2025 Трекер задач. Все права защищены.
+              © 2025 Life Tracker. Все права защищены.
             </Typography>
           </Box>
         </Container>
