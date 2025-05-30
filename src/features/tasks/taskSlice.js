@@ -10,7 +10,10 @@ export const fetchTasks = createAsyncThunk(
         throw new Error('Ошибка загрузки задач');
       }
       const data = await response.json();
-      return data; // массив задач
+      return data.map(task => ({
+        ...task,
+        status: task.completed ? 'done' : 'pending'
+      }));
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
