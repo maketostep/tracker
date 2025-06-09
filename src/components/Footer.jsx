@@ -28,6 +28,13 @@ export default function Footer() {
               </Typography>
             </Box>
             <Typography variant="body2" color="grey.400" textAlign="center">
+              Мкртчян Мартун Вигенович
+              ИНН: 263515981755
+            </Typography>
+            <Typography variant="body2" color="grey.400" textAlign="center">
+              Контакт для связи: +7 (962) 405 25 48
+            </Typography>
+            <Typography variant="body2" color="grey.400" textAlign="center">
               © 2025 Life Tracker. Все права защищены.
             </Typography>
           </Box>

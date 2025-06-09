@@ -10,14 +10,13 @@ import {
   Paper,
   Stack,
   SvgIcon,
-  useTheme,
 } from '@mui/material';
 import { Add, CheckCircle, Label } from '@mui/icons-material';
+import ImgMediaCard from '../components/store/ImgMediaCard';
 
 const FeatureCard = ({ icon, title, description }) => (
   <Paper
     elevation={1}
-    justifyContent='center'
     sx={{
       textAlign: 'center',
       p: { xs: 2, md: 3},
@@ -54,9 +53,20 @@ const FeatureCard = ({ icon, title, description }) => (
     </Typography>
   </Paper>
 );
+import defaultV from '../img/default.png'
+import pro from '../img/pro.png'
+import proPlus from '../img/pro+.png'
+import adept from '../img/adept.png'
+import ConditionsModal from '../components/store/ConditionsModal';
+
+const data = [
+  { id: '1', title: 'Обычная версия', price: '1400', description: 'Позволяет пользоваться услугами сервиса', url: defaultV},
+  { id: '2', title: 'Версия PRO', price: '2500', description: 'Открывает доступ к PRO-функциям', url: pro},
+  { id: '3', title: 'Версия PRO+', price: '3200', description: 'Открывает доступ к PRO-функциям, и позволяет создавать свои бизнес-функции', url: proPlus},
+  { id: '4', title: 'Версия ADEPT', price: '4700', description: 'Полный функционал, доступ ко всем функциям, самая быстрая поддержка по обращениям', url: adept},
+]
 
 const Index = () => {
-  const theme = useTheme();
 
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
@@ -116,10 +126,19 @@ const Index = () => {
                 >
                   Войти в аккаунт
                 </Button>
+                
               </Stack>
+                <ConditionsModal/>
             </Box>
+            
           </Container>
         </Box>
+        {/* Store */}     
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: { xs: 6, md: 10 }}}>
+    
+          <ImgMediaCard data={data} />
+
+        </Box>     
 
         {/* Features */}
         <Box py={5}>
