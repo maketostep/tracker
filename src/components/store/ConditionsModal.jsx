@@ -9,12 +9,13 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '90%',
-  maxWidth: 600,
+  width: 500,
   bgcolor: 'background.paper',
   borderRadius: 2,
   boxShadow: 24,
   p: 4,
+  maxHeight: '80vh',
+  overflowY: 'auto',
 };
 
 export default function ConditionsModal() {
@@ -24,15 +25,16 @@ export default function ConditionsModal() {
 
   return (
     <div>
-      <Button
+      <Button 
         variant="text"
         size="large"
         color="inherit"
-        sx={{ mt: 2 }}
+        sx={{ mt: 2 }} 
         onClick={handleOpen}
       >
         Условия
       </Button>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -40,55 +42,73 @@ export default function ConditionsModal() {
         aria-describedby="modal-conditions-description"
       >
         <Box sx={style}>
-          <Typography id="modal-conditions-title" variant="h5" fontWeight="bold" gutterBottom>
-            Условия предоставления услуг
+          <Typography variant="h6" component="h2" gutterBottom>
+            📄 Условия предоставления услуг
           </Typography>
-
-          <Typography variant="body1" gutterBottom>
-            📄 Мы предоставляем доступ к нашему сервису/продукту после успешной оплаты выбранного тарифа. 
-            После подтверждения оплаты вы получаете доступ в течение нескольких минут. 
+          <Typography variant="body1" paragraph>
+            Мы предоставляем доступ к нашему сервису/продукту после успешной оплаты выбранного тарифа.
+            После подтверждения оплаты вы получаете доступ в течение нескольких минут.
             Все услуги предоставляются в цифровом виде и не подлежат физической доставке, если не указано иное.
           </Typography>
 
-          <Typography variant="h6" fontWeight="bold" sx={{ mt: 3 }}>
+          <Typography variant="h6" component="h3" gutterBottom>
             🚚 Доставка товаров
           </Typography>
-          <Typography variant="body1" gutterBottom sx={{ mt: 1 }}>
-            <strong>Если речь идет о физических товарах:</strong>
-            <ul>
-              <li>Сроки доставки: 2–7 рабочих дней в зависимости от региона.</li>
-              <li>Стоимость доставки: рассчитывается автоматически при оформлении заказа.</li>
-              <li>Способы доставки: курьерская служба, самовывоз, почта.</li>
-            </ul>
-            <strong>Для цифровых товаров:</strong><br />
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+            Физические товары:
+          </Typography>
+          <ul style={{ paddingLeft: '1.2rem', marginTop: 0 }}>
+            <li><Typography variant="body2">Сроки доставки: 2–7 рабочих дней в зависимости от региона</Typography></li>
+            <li><Typography variant="body2">Стоимость доставки: рассчитывается автоматически при оформлении заказа</Typography></li>
+            <li><Typography variant="body2">Способы доставки: курьерская служба, самовывоз, почта</Typography></li>
+          </ul>
+
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom sx={{ mt: 2 }}>
+            Цифровые товары:
+          </Typography>
+          <Typography variant="body2">
             Доставка осуществляется мгновенно после оплаты на указанный e-mail или в личном кабинете.
           </Typography>
 
-          <Typography variant="h6" fontWeight="bold" sx={{ mt: 3 }}>
+          <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             🔄 Возврат и отказ от покупки
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" paragraph>
             Вы можете отказаться от покупки:
-            <ul>
-              <li>
-                <strong>Физических товаров</strong> — в течение 7 дней с момента получения, при условии сохранности упаковки и товарного вида. Возврат осуществляется за счёт покупателя.
-              </li>
-              <li>
-                <strong>Цифровых услуг или подписок</strong> — возврат возможен, если услуга не была оказана (не был предоставлен доступ/не использовалась).
-              </li>
-            </ul>
-            Чтобы оформить возврат, напишите нам на <strong>support@yourdomain.ru</strong> с указанием:
-            <ul>
-              <li>номера заказа,</li>
-              <li>причины возврата,</li>
-              <li>и контактной информации.</li>
-            </ul>
-            <strong>Важно:</strong> возврат денежных средств производится в течение 7 рабочих дней с момента одобрения возврата.
           </Typography>
-          <Box sx={{display: 'flex', width:"100%", justifyContent: 'center', p: 2}}>
+
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+            Физические товары:
+          </Typography>
+          <Typography variant="body2" paragraph>
+            В течение 7 дней с момента получения, при условии сохранности упаковки и товарного вида.
+            Возврат осуществляется за счёт покупателя.
+          </Typography>
+
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+            Цифровые услуги и подписки:
+          </Typography>
+          <Typography variant="body2" paragraph>
+            Возврат возможен, если услуга не была оказана (не был предоставлен доступ или не использовалась).
+          </Typography>
+
+          <Typography variant="body2" paragraph>
+            Чтобы оформить возврат, напишите нам на <b>support@lifetracker.ru</b> с указанием:
+          </Typography>
+          <ul style={{ paddingLeft: '1.2rem', marginTop: 0 }}>
+            <li><Typography variant="body2">Номера заказа</Typography></li>
+            <li><Typography variant="body2">Причины возврата</Typography></li>
+            <li><Typography variant="body2">Контактной информации</Typography></li>
+          </ul>
+
+          <Typography variant="body2" sx={{ mt: 2 }}>
+            <b>Важно:</b> возврат денежных средств производится в течение 7 рабочих дней с момента одобрения возврата.
+          </Typography>
+          <Box sx={{display: 'flex', width:"100%", justifyContent: 'center', paddingTop: 2}}>
             <Button onClick={handleClose} color='inherit' variant='outlined'>Закрыть</Button>
           </Box>
         </Box>
+        
       </Modal>
     </div>
   );
