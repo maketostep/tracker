@@ -22,7 +22,10 @@ export default function ImgMediaCard({data}) {
           <Typography gutterBottom variant="h5" component="div">
             {card.title}
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography
+            variant="body2"
+            sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}
+          >
             {card.description}
           </Typography>
         </CardContent>

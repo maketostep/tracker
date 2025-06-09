@@ -60,11 +60,35 @@ import adept from '../img/adept.png'
 import ConditionsModal from '../components/store/ConditionsModal';
 
 const data = [
-  { id: '1', title: 'Обычная версия', price: '1400', description: 'Позволяет пользоваться услугами сервиса', url: defaultV},
-  { id: '2', title: 'Версия PRO', price: '2500', description: 'Открывает доступ к PRO-функциям', url: pro},
-  { id: '3', title: 'Версия PRO+', price: '3200', description: 'Открывает доступ к PRO-функциям, и позволяет создавать свои бизнес-функции', url: proPlus},
-  { id: '4', title: 'Версия ADEPT', price: '4700', description: 'Полный функционал, доступ ко всем функциям, самая быстрая поддержка по обращениям', url: adept},
-]
+  {
+    id: '1',
+    title: 'Обычная версия',
+    price: '1400',
+    description: 'Подходит для базового использования:\n• Создание и управление задачами\n• До 3 проектов и 50 задач\n• Общая панель прогресса\n\nНДС не облагается',
+    url: defaultV
+  },
+  {
+    id: '2',
+    title: 'Версия PRO',
+    price: '2500',
+    description: 'Для активной командной работы:\n• Все функции обычной версии\n• Аналитика по задачам и времени\n• До 5 участников\n• Экспорт задач в CSV\n\nНДС не облагается',
+    url: pro
+  },
+  {
+    id: '3',
+    title: 'Версия PRO+',
+    price: '3200',
+    description: 'Максимум гибкости и расширений:\n• Все функции PRO\n• Создание собственных автоматизаций\n• Интеграция с Google Calendar\n• Расширенный API-доступ\n\nНДС не облагается',
+    url: proPlus
+  },
+  {
+    id: '4',
+    title: 'Версия ADEPT',
+    price: '4700',
+    description: 'Для профессионалов и бизнеса:\n• Все функции PRO+\n• Кастомные отчёты (PDF/Excel)\n• SLA-поддержка 24/7\n• До 50 участников\n• Личный менеджер\n\nНДС не облагается',
+    url: adept
+  },
+];
 
 const Index = () => {
 
