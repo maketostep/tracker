@@ -29,7 +29,7 @@ export default function ConditionsModal() {
         variant="text"
         size="large"
         color="inherit"
-        sx={{ mt: 2 }} 
+        sx={{ mt: 2, textDecoration:'underline' }} 
         onClick={handleOpen}
       >
         Условия
