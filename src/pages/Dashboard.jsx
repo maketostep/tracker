@@ -8,6 +8,7 @@ import {
   Snackbar,
   Alert,
   Stack,
+  Button,
 } from "@mui/material"
 import { useAppSelector } from "@/app/hooks"
 
@@ -15,7 +16,8 @@ import { fetchTasks } from "@/features/tasks/taskSlice"
 import TaskList from "@/components/tasks/TaskList"
 import { useDispatch } from "react-redux"
 import { useAuth } from "../hooks/use-auth"
-import { Navigate, useNavigate } from "react-router"
+import { Link } from "react-router"
+import { MoodBad } from "@mui/icons-material"
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -39,9 +41,8 @@ const Dashboard = () => {
   const doneCount = tasks.filter((t) => t.status === "done").length
 
   const { isAuth } = useAuth()
-  const navigate = useNavigate()
   return isAuth ? (
-    <Box px={{ xs: 2, md: 4 }} py={{ xs: 4, md: 6 }}>
+    <Box height="calc(100vh)" px={{ xs: 2, md: 4 }} py={{ xs: 4, md: 6 }}>
       <Stack
         sx={{ display: "flex" }}
         direction={{ xs: "column", sm: "row" }}
@@ -127,7 +128,32 @@ const Dashboard = () => {
       </Snackbar>
     </Box>
   ) : (
-    <>{navigate("/login")}</>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        justifyItems: "center",
+        alignItems: "center",
+        height: "calc(100vw * (9/16));",
+      }}
+      px={{ xs: 2, md: 4 }}
+      py={{ xs: 4, md: 6 }}
+    >
+      <Typography variant="h2">
+        {" "}
+        А кто вы такой? <MoodBad sx={{ width: "150px", height: "150px" }} />
+      </Typography>
+
+      <Typography variant="h4">
+        {" "}
+        Выполните{" "}
+        <Button component={Link} color="inherit" to="/login">
+          вход
+        </Button>
+        , чтобы отобразить данные.
+      </Typography>
+    </Box>
   )
 }
 

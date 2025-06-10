@@ -21,16 +21,9 @@ export default function ErrorAlert({ code }) {
   console.log(code)
   useEffect(() => {
     if (code && ERROR_MESSAGES[code]) {
-      // Закрываем предыдущее уведомление, если уже открыто
       setOpen(false)
-
-      // Небольшая задержка, чтобы позволить закрыться предыдущему Snackbar
-      const timer = setTimeout(() => {
-        setMessage(ERROR_MESSAGES[code])
-        setOpen(true)
-      }, 100) // 100 мс достаточно
-
-      return () => clearTimeout(timer) // Чистим таймер
+      setMessage(ERROR_MESSAGES[code])
+      setOpen(true)
     }
   }, [code])
 

@@ -8,14 +8,17 @@ import {
   Link,
   Paper,
 } from "@mui/material"
-import { NavLink, useNavigate } from "react-router"
+import { Navigate, NavLink, useNavigate } from "react-router"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import Form from "../components/Form"
 import { useDispatch } from "react-redux"
 import { setUser } from "../features/auth/userSlice"
 import ErrorAlert from "../components/ErrorAlert"
+import { useAuth } from "../hooks/use-auth"
 
 const Login = () => {
+  const { isAuth } = useAuth
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [showError, setShowError] = useState(false)
@@ -36,6 +39,10 @@ const Login = () => {
         navigate("/dashboard")
       })
       .catch((error) => setShowError(error.code))
+  }
+
+  if (isAuth) {
+    return <Navigate to="/dashboard" replace />
   }
 
   return (

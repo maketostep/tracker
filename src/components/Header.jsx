@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material"
 import React from "react"
-import { NavLink, Link as RouterLink, useNavigate } from "react-router"
+import { Link, NavLink, Link as RouterLink, useNavigate } from "react-router"
 import { useAuth } from "../hooks/use-auth"
 import { removeUser } from "../features/auth/userSlice"
 import { useDispatch } from "react-redux"
@@ -63,6 +63,9 @@ export default function Header() {
         <Stack direction="row" spacing={1}>
           {isAuth ? (
             <Box sx={{ display: "flex" }}>
+              <Button component={Link} to="/dashboard" color="inherit">
+                Задачи
+              </Button>
               <Typography variant="h6" ml={2} fontWeight="bold">
                 {email}
               </Typography>
