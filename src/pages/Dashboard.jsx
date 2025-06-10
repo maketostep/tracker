@@ -38,7 +38,7 @@ const Dashboard = () => {
   const inProgressCount = tasks.filter((t) => t.status === "in_progress").length
   const doneCount = tasks.filter((t) => t.status === "done").length
 
-  const { isAuth, email } = useAuth()
+  const { isAuth } = useAuth()
   const navigate = useNavigate()
   return isAuth ? (
     <Box px={{ xs: 2, md: 4 }} py={{ xs: 4, md: 6 }}>

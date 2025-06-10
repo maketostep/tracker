@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Пример асинхронного логина
 const initialState = {
   email: null,
   token: null,

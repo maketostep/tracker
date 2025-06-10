@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Container,
   Box,
@@ -13,13 +13,15 @@ import Form from "../components/Form"
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth"
 import { useDispatch } from "react-redux"
 import { setUser } from "../features/auth/userSlice"
+import ErrorAlert from "../components/ErrorAlert"
 
 const Register = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
+  const [showError, setShowError] = useState(false)
   const handleRegister = (e, email, password) => {
     e.preventDefault()
+    setShowError(false)
     const auth = getAuth()
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -33,7 +35,7 @@ const Register = () => {
         )
         navigate("/dashboard")
       })
-      .catch(console.error)
+      .catch((error) => setShowError(error.code))
   }
   return (
     <Container component="main" maxWidth="xs">
@@ -55,6 +57,7 @@ const Register = () => {
         Заполните форму ниже, чтобы создать новый аккаунт и начать пользоваться
         всеми функциями.
       </Typography>
+      <ErrorAlert code={showError} />
       <Paper elevation={6} sx={{ p: 4, mt: 8, mb: 8, borderRadius: 4 }}>
         <Typography component="h1" variant="h5" textAlign="center" mb={2}>
           Регистрация
