@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import store from "./app/store";
 import { Provider } from "react-redux";
-
+import './Firebase'
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
